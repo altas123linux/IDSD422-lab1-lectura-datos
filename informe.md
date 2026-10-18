@@ -17,11 +17,13 @@
 
 | Formato | Origen | Filas | Columnas | Lectura en código |
 |---|---|---|---|---|
-| CSV | ERP de sucursales | | | |
-| JSON | API de fidelización | | | |
-| Excel | Consolidado de finanzas | | | |
+| CSV | ERP de sucursales |5 |4 |ventas = pd.read_csv("data/ventas.csv") / ventas <- read_csv("data/ventas.csv")
+| JSON | API de fidelización |5 | 4| datos= json.load(f)+ventas=pd.json_normalize(datos)  / ventas<- fromJSON("data/ventas.json")
+| Excel | Consolidado de finanzas |5 | 4| ventas = pd.read_excel("data/ventas.xlsx", sheet_name="ventas")  /  ventas <- read_excel("data/ventas.xlsx", sheet="ventas")
 
 *Responde: ¿la estructura interna del archivo (texto plano, anidada, binaria) cambia el contenido?*
+
+No, la estructura interna del archivo no cambia el contenido. Durante la consolidacion  de los reportes de ventas se evidenció que todos los formatos contienen 5 observaciones y 4 variables.
 
 ## 2. Tipos de datos y calidad
 
@@ -29,8 +31,8 @@
 
 | Variable | Tipo inferido (Python) | Tipo inferido (R) | Interpretación |
 |---|---|---|---|
-| `ventas` | | | |
-| `clientes` | | | |
+| `ventas` |int64 | | |
+| `clientes` |int64 | | |
 | `sucursal` | | | |
 | `region` | | | |
 
